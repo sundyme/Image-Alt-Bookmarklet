@@ -26,7 +26,7 @@ javascript:(function() {
             event.preventDefault();
             var imageUrl = target.src;
             var altText = target.alt;
-            var clipboardText = "图片链接：" + imageUrl + " 图片alt信息：" + altText;
+            var clipboardText = "图片链接：" + imageUrl + "\\n图片alt信息：" + altText;
             var textArea = document.createElement('textarea');
             textArea.value = clipboardText;
             textArea.style.position = 'fixed';
@@ -36,7 +36,20 @@ javascript:(function() {
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
-            alert("图片链接和alt信息已复制到剪贴板！");
+            var notification = document.createElement('div');
+            notification.innerHTML = "图片链接和alt信息已复制到剪贴板！";
+            notification.style.position = 'fixed';
+            notification.style.top = '20px';
+            notification.style.right = '20px';
+            notification.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            notification.style.color = 'white';
+            notification.style.padding = '10px';
+            notification.style.borderRadius = '5px';
+            notification.style.zIndex = '9999';
+            document.body.appendChild(notification);
+            setTimeout(function() {
+                document.body.removeChild(notification);
+            }, 3000);
         }
     }, false);
 })();
