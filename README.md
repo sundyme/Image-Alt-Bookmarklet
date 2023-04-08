@@ -26,7 +26,7 @@ javascript:(function() {
             event.preventDefault();
             var imageUrl = target.src;
             var altText = target.alt;
-            var clipboardText = "图片链接：" + imageUrl + "\\n图片alt信息：" + altText;
+            var clipboardText = "图片链接：" + imageUrl + "\图片alt信息：" + altText;
             var textArea = document.createElement('textarea');
             textArea.value = clipboardText;
             textArea.style.position = 'fixed';
