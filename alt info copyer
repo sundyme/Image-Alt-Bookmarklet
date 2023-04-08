@@ -1,0 +1,21 @@
+javascript:(function() {
+    document.addEventListener('click', function(event) {
+        var target = event.target;
+        if (target.tagName.toLowerCase() === 'img') {
+            event.preventDefault();
+            var imageUrl = target.src;
+            var altText = target.alt;
+            var clipboardText = "图片链接：" + imageUrl + " 图片alt信息：" + altText;
+            var textArea = document.createElement('textarea');
+            textArea.value = clipboardText;
+            textArea.style.position = 'fixed';
+            textArea.style.top = '-1000px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert("图片链接和alt信息已复制到剪贴板！");
+        }
+    }, false);
+})();
