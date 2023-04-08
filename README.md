@@ -40,7 +40,7 @@ javascript:(function() {
         }
     }, false);
 })();
-
+```
 
 6. 保存更改后的书签。
 
